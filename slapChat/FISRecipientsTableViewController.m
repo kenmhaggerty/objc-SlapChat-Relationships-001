@@ -13,6 +13,7 @@
 
 @interface FISRecipientsTableViewController ()
 @property (nonatomic, strong) FISDataStore *store;
+@property (nonatomic, strong) NSArray *recipients;
 @end
 
 @implementation FISRecipientsTableViewController
@@ -34,6 +35,7 @@
     [super viewWillAppear:animated];
     
     [self.store fetchData];
+    [self setRecipients:self.filter ? [self.store.recipients filteredArrayUsingPredicate:self.filter] : self.store.recipients];
     [self.tableView reloadData];
 }
 
@@ -51,13 +53,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.store.recipients.count;
+    return self.recipients.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recipientCell" forIndexPath:indexPath];
     
-    Recipient *recipient = [self.store.recipients objectAtIndex:indexPath.row];
+    Recipient *recipient = [self.recipients objectAtIndex:indexPath.row];
     [cell.textLabel setText:recipient.name];
     [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ • %@ • %@", recipient.email ? recipient.email : @"(email)", recipient.phoneNumber ? recipient.phoneNumber : @"(phone)", recipient.twitterHandle ? recipient.twitterHandle : @"(twitter)"]];
     
@@ -106,7 +108,7 @@
     if (![segue.identifier isEqualToString:@"showMessages"]) return;
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    Recipient *recipient = self.store.recipients[indexPath.row];
+    Recipient *recipient = self.recipients[indexPath.row];
     
     FISTableViewController *tableViewController = (FISTableViewController *)segue.destinationViewController;
     [tableViewController setManagedMessageObjects:recipient.messages.allObjects];

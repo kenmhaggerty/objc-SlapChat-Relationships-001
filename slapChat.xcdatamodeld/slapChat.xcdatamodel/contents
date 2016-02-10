@@ -3,6 +3,7 @@
     <entity name="Message" representedClassName="Message" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="recipient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipient" inverseName="messages" inverseEntity="Recipient" syncable="YES"/>
     </entity>
     <entity name="Recipient" representedClassName="Recipient" syncable="YES">
@@ -13,7 +14,7 @@
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="recipient" inverseEntity="Message" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Message" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Message" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Recipient" positionX="142" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

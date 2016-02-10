@@ -120,17 +120,20 @@
     
     messageOne.content = @"Message 1";
     messageOne.createdAt = [NSDate date];
+    messageOne.creationDate = [[NSCalendar currentCalendar] startOfDayForDate:messageOne.createdAt];
     messageOne.recipient = recipient1;
     
     Message *messageTwo = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
     messageTwo.content = @"Message 2";
     messageTwo.createdAt = [NSDate date];
+    messageTwo.creationDate = [[NSCalendar currentCalendar] startOfDayForDate:messageTwo.createdAt];
     messageTwo.recipient = recipient2;
     
     Message *messageThree = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
     
     messageThree.content = @"Message 3";
     messageThree.createdAt = [NSDate date];
+    messageThree.creationDate = [[NSCalendar currentCalendar] startOfDayForDate:messageThree.createdAt];
     messageThree.recipient = recipient3;
     
     [self saveContext];

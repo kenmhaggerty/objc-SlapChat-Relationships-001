@@ -12,7 +12,7 @@
 
 @interface FISTableViewController : UITableViewController
 
-
+@property (nonatomic, strong) NSPredicate *filter;
 @property (strong, nonatomic) NSArray *managedMessageObjects;
 @property (strong, nonatomic) FISDataStore *store;
 

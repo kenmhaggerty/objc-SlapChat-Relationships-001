@@ -15,6 +15,7 @@
 
 @dynamic content;
 @dynamic createdAt;
+@dynamic creationDate;
 @dynamic recipient;
 
 @end

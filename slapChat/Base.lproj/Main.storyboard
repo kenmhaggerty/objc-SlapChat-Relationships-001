@@ -2,8 +2,106 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vbj-np-SbC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Recipients Search View Controller-->
+        <scene sceneID="L7L-bC-uz1">
+            <objects>
+                <viewController id="u0k-QX-qyR" customClass="FISRecipientsSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oam-uB-zqe"/>
+                        <viewControllerLayoutGuide type="bottom" id="1WF-nh-E9o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M2d-Gh-0Om">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="twitter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9o-Gm-0bs">
+                                <rect key="frame" x="16" y="186" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSH-3f-fJS">
+                                <rect key="frame" x="16" y="148" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmo-3U-R5l">
+                                <rect key="frame" x="16" y="110" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLs-tr-WNn">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yo-OV-9qN">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Filter" id="RIp-Xs-LIv">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="yW3-HG-zyq">
+                                            <connections>
+                                                <action selector="close:" destination="u0k-QX-qyR" id="0Tf-eq-Qtu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="u0k-QX-qyR" id="NWV-Sp-p4g"/>
+                                </connections>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nun-HO-h0z">
+                                <rect key="frame" x="119" y="224" width="82" height="30"/>
+                                <state key="normal" title="Clear Filters"/>
+                                <connections>
+                                    <action selector="clearFilters:" destination="u0k-QX-qyR" eventType="touchUpInside" id="xzo-bh-48O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUL-sp-mYu">
+                                <rect key="frame" x="143" y="262" width="35" height="30"/>
+                                <state key="normal" title="Filter"/>
+                                <connections>
+                                    <action selector="filter:" destination="u0k-QX-qyR" eventType="touchUpInside" id="tmg-ie-R7W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C9o-Gm-0bs" firstAttribute="top" secondItem="gSH-3f-fJS" secondAttribute="bottom" constant="8" id="2LV-5F-EcA"/>
+                            <constraint firstItem="CUL-sp-mYu" firstAttribute="centerX" secondItem="M2d-Gh-0Om" secondAttribute="centerX" id="60y-fF-9Ho"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gSH-3f-fJS" secondAttribute="trailing" id="6G4-uX-9Sg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kLs-tr-WNn" secondAttribute="trailing" id="7xs-Ez-Qoh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vmo-3U-R5l" secondAttribute="trailing" id="8Eg-2M-E4e"/>
+                            <constraint firstItem="0Yo-OV-9qN" firstAttribute="top" secondItem="oam-uB-zqe" secondAttribute="bottom" id="AXx-IX-9sr"/>
+                            <constraint firstItem="nun-HO-h0z" firstAttribute="top" secondItem="C9o-Gm-0bs" secondAttribute="bottom" constant="8" id="EHB-nt-xOM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C9o-Gm-0bs" secondAttribute="trailing" id="KJ2-RO-tdN"/>
+                            <constraint firstItem="vmo-3U-R5l" firstAttribute="top" secondItem="kLs-tr-WNn" secondAttribute="bottom" constant="8" id="NPh-jB-eyk"/>
+                            <constraint firstItem="gSH-3f-fJS" firstAttribute="top" secondItem="vmo-3U-R5l" secondAttribute="bottom" constant="8" id="NhX-qo-Zoh"/>
+                            <constraint firstItem="kLs-tr-WNn" firstAttribute="top" secondItem="oam-uB-zqe" secondAttribute="bottom" constant="52" id="OxH-CF-Qf5"/>
+                            <constraint firstItem="nun-HO-h0z" firstAttribute="centerX" secondItem="M2d-Gh-0Om" secondAttribute="centerX" id="P8K-Nf-83b"/>
+                            <constraint firstItem="C9o-Gm-0bs" firstAttribute="leading" secondItem="M2d-Gh-0Om" secondAttribute="leadingMargin" id="WKj-OV-Wky"/>
+                            <constraint firstItem="gSH-3f-fJS" firstAttribute="leading" secondItem="M2d-Gh-0Om" secondAttribute="leadingMargin" id="bU8-JZ-kQu"/>
+                            <constraint firstItem="kLs-tr-WNn" firstAttribute="leading" secondItem="M2d-Gh-0Om" secondAttribute="leadingMargin" id="eCT-qy-9uf"/>
+                            <constraint firstAttribute="trailing" secondItem="0Yo-OV-9qN" secondAttribute="trailing" id="ei5-D3-4Kj"/>
+                            <constraint firstItem="CUL-sp-mYu" firstAttribute="top" secondItem="nun-HO-h0z" secondAttribute="bottom" constant="8" id="jqV-0Q-EL9"/>
+                            <constraint firstItem="vmo-3U-R5l" firstAttribute="leading" secondItem="M2d-Gh-0Om" secondAttribute="leadingMargin" id="pjC-hf-Qwh"/>
+                            <constraint firstItem="0Yo-OV-9qN" firstAttribute="leading" secondItem="M2d-Gh-0Om" secondAttribute="leading" id="sTh-YY-AzR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="vmo-3U-R5l" id="pV2-Gq-5h2"/>
+                        <outlet property="nameTextField" destination="kLs-tr-WNn" id="0qz-CU-B6H"/>
+                        <outlet property="navigationBar" destination="0Yo-OV-9qN" id="OZX-p7-7Cu"/>
+                        <outlet property="phoneTextField" destination="gSH-3f-fJS" id="f0Y-yq-Qjc"/>
+                        <outlet property="twitterTextField" destination="C9o-Gm-0bs" id="gT6-Og-w7g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouk-DQ-ryc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="-516"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="Gri-Fo-fzR">
             <objects>
@@ -36,7 +134,13 @@
                             <outlet property="delegate" destination="dNY-UJ-JDt" id="SH5-nR-KPc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cm4-o6-G3J"/>
+                    <navigationItem key="navigationItem" id="cm4-o6-G3J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="l1V-ys-buO">
+                            <connections>
+                                <segue destination="th7-Kc-Kvb" kind="modal" identifier="filterMessages" id="zFc-eu-M0v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKX-u5-qfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,7 +181,13 @@
                             <outlet property="delegate" destination="PMQ-Jv-9uC" id="XBc-PB-o0N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fCC-pR-gkz"/>
+                    <navigationItem key="navigationItem" id="fCC-pR-gkz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="8Ws-x7-CFD">
+                            <connections>
+                                <segue destination="u0k-QX-qyR" kind="modal" identifier="filterRecipients" id="2F3-X2-9pp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wi9-lM-7QS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,6 +210,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="My5-bs-kHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="234" y="145"/>
+        </scene>
+        <!--Messages Search View Controller-->
+        <scene sceneID="vJu-2x-s5x">
+            <objects>
+                <viewController id="th7-Kc-Kvb" customClass="FISMessagesSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xGG-FF-Jp2"/>
+                        <viewControllerLayoutGuide type="bottom" id="jo8-Nn-88X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fLI-nN-N5p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q83-P8-1vq">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAs-Wy-Tgv">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Filter" id="ohA-e7-ZOY">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="SWR-hC-I3c">
+                                            <connections>
+                                                <action selector="close:" destination="th7-Kc-Kvb" id="URe-Jr-ugc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="th7-Kc-Kvb" id="3sj-Lk-DMb"/>
+                                </connections>
+                            </navigationBar>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-F0-YVU">
+                                <rect key="frame" x="0.0" y="149" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="476815198.98466599">
+                                    <!--2016-02-10 16:39:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search by Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkT-WY-ImH">
+                                <rect key="frame" x="16" y="110" width="117" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drc-fv-5xT">
+                                <rect key="frame" x="255" y="110" width="51" height="31"/>
+                                <connections>
+                                    <action selector="enableSearchByDate:" destination="th7-Kc-Kvb" eventType="valueChanged" id="zRi-Ae-vQ1"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-qF-gKb">
+                                <rect key="frame" x="119" y="373" width="82" height="30"/>
+                                <state key="normal" title="Clear Filters"/>
+                                <connections>
+                                    <action selector="clearFilters:" destination="th7-Kc-Kvb" eventType="touchUpInside" id="ArY-li-lh4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQp-bu-GNh">
+                                <rect key="frame" x="143" y="411" width="35" height="30"/>
+                                <state key="normal" title="Filter"/>
+                                <connections>
+                                    <action selector="filter:" destination="th7-Kc-Kvb" eventType="touchUpInside" id="kUx-9H-cIy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Drc-fv-5xT" firstAttribute="centerY" secondItem="XkT-WY-ImH" secondAttribute="centerY" id="6WU-wX-fjI"/>
+                            <constraint firstItem="Kcy-F0-YVU" firstAttribute="width" secondItem="fLI-nN-N5p" secondAttribute="width" id="90u-Em-XW6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q83-P8-1vq" secondAttribute="trailing" id="AMD-u1-hqa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Drc-fv-5xT" secondAttribute="trailing" id="DAW-Tr-jy9"/>
+                            <constraint firstItem="lYp-qF-gKb" firstAttribute="top" secondItem="Kcy-F0-YVU" secondAttribute="bottom" constant="8" id="Gqn-Qw-nQ4"/>
+                            <constraint firstItem="HQp-bu-GNh" firstAttribute="top" secondItem="lYp-qF-gKb" secondAttribute="bottom" constant="8" id="Yad-yb-FJr"/>
+                            <constraint firstAttribute="trailing" secondItem="BAs-Wy-Tgv" secondAttribute="trailing" id="d4e-zA-shx"/>
+                            <constraint firstItem="Q83-P8-1vq" firstAttribute="leading" secondItem="fLI-nN-N5p" secondAttribute="leadingMargin" id="dHG-2T-5xE"/>
+                            <constraint firstItem="XkT-WY-ImH" firstAttribute="leading" secondItem="fLI-nN-N5p" secondAttribute="leadingMargin" id="eDY-cy-eHs"/>
+                            <constraint firstItem="lYp-qF-gKb" firstAttribute="centerX" secondItem="fLI-nN-N5p" secondAttribute="centerX" id="edH-gC-FCM"/>
+                            <constraint firstItem="BAs-Wy-Tgv" firstAttribute="top" secondItem="xGG-FF-Jp2" secondAttribute="bottom" id="f0E-J4-rZ9"/>
+                            <constraint firstItem="HQp-bu-GNh" firstAttribute="centerX" secondItem="fLI-nN-N5p" secondAttribute="centerX" id="fkG-GV-sNm"/>
+                            <constraint firstItem="Drc-fv-5xT" firstAttribute="top" secondItem="Q83-P8-1vq" secondAttribute="bottom" constant="8" id="gYG-rd-3vb"/>
+                            <constraint firstItem="Kcy-F0-YVU" firstAttribute="centerX" secondItem="fLI-nN-N5p" secondAttribute="centerX" id="jh8-UU-Hgu"/>
+                            <constraint firstItem="Q83-P8-1vq" firstAttribute="top" secondItem="xGG-FF-Jp2" secondAttribute="bottom" constant="52" id="kZq-Ul-PGA"/>
+                            <constraint firstItem="BAs-Wy-Tgv" firstAttribute="leading" secondItem="fLI-nN-N5p" secondAttribute="leading" id="n8d-7f-Qmp"/>
+                            <constraint firstItem="XkT-WY-ImH" firstAttribute="top" secondItem="Q83-P8-1vq" secondAttribute="bottom" priority="750" constant="8" id="uM6-Ea-TFI"/>
+                            <constraint firstItem="Kcy-F0-YVU" firstAttribute="top" secondItem="Drc-fv-5xT" secondAttribute="bottom" constant="8" id="wgd-YZ-Qrs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonSwitch" destination="Drc-fv-5xT" id="jEs-oa-fG7"/>
+                        <outlet property="contentTextField" destination="Q83-P8-1vq" id="M1H-TH-Ds1"/>
+                        <outlet property="datePicker" destination="Kcy-F0-YVU" id="oUU-mb-T9r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NC4-VK-mhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="-516"/>
         </scene>
     </scenes>
 </document>

@@ -10,7 +10,7 @@
 #import "Message.h"
 
 @interface FISTableViewController ()
-
+@property (nonatomic, strong) NSArray *filteredMessages;
 @end
 
 @implementation FISTableViewController
@@ -24,8 +24,6 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,13 +32,13 @@
 
 }
 
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//
-//    [self.store fetchData];
-//    [self.tableView reloadData];
-//}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self setFilteredMessages:self.filter ? [self.managedMessageObjects filteredArrayUsingPredicate:self.filter] : self.managedMessageObjects];
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -60,7 +58,7 @@
 {
     // Return the number of rows in the section.
 //    return [self.store.messages count];
-    return self.managedMessageObjects.count;
+    return self.filteredMessages.count;
 }
 
 
@@ -69,7 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basiccell" forIndexPath:indexPath];
     
 //    Message *eachMessage = self.store.messages[indexPath.row];
-    Message *eachMessage = self.managedMessageObjects[indexPath.row];
+    Message *eachMessage = self.filteredMessages[indexPath.row];
     
     cell.textLabel.text = eachMessage.content;
     
