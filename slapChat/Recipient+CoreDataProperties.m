@@ -1,5 +1,5 @@
 //
-//  Message+CoreDataProperties.m
+//  Recipient+CoreDataProperties.m
 //  slapChat
 //
 //  Created by Ken M. Haggerty on 2/10/16.
@@ -9,12 +9,14 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Message+CoreDataProperties.h"
+#import "Recipient+CoreDataProperties.h"
 
-@implementation Message (CoreDataProperties)
+@implementation Recipient (CoreDataProperties)
 
-@dynamic content;
-@dynamic createdAt;
-@dynamic recipient;
+@dynamic name;
+@dynamic email;
+@dynamic phoneNumber;
+@dynamic twitterHandle;
+@dynamic messages;
 
 @end

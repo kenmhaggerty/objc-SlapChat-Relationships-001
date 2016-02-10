@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BBECA2C1BD5659900FFFAE2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBECA2B1BD5659900FFFAE2 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		BDABDB651BD9899D00B9979E /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABDB621BD9899D00B9979E /* Message+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		BDABDB661BD9899D00B9979E /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABDB641BD9899D00B9979E /* Message.m */; settings = {ASSET_TAGS = (); }; };
+		5BBECA2C1BD5659900FFFAE2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBECA2B1BD5659900FFFAE2 /* Launch Screen.storyboard */; };
+		7DF3D3E31C6B8BF100D926BD /* FISRecipientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3E21C6B8BF100D926BD /* FISRecipientsTableViewController.m */; };
+		7DF3D3E81C6B8F8C00D926BD /* Recipient+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3E51C6B8F8C00D926BD /* Recipient+CoreDataProperties.m */; };
+		7DF3D3E91C6B8F8D00D926BD /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3D3E71C6B8F8C00D926BD /* Recipient.m */; };
+		BDABDB651BD9899D00B9979E /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABDB621BD9899D00B9979E /* Message+CoreDataProperties.m */; };
+		BDABDB661BD9899D00B9979E /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = BDABDB641BD9899D00B9979E /* Message.m */; };
 		D879F339195E028000FC5285 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F338195E028000FC5285 /* Foundation.framework */; };
 		D879F33B195E028000FC5285 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33A195E028000FC5285 /* CoreGraphics.framework */; };
 		D879F33D195E028000FC5285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33C195E028000FC5285 /* UIKit.framework */; };
@@ -39,6 +42,12 @@
 
 /* Begin PBXFileReference section */
 		5BBECA2B1BD5659900FFFAE2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7DF3D3E11C6B8BF000D926BD /* FISRecipientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISRecipientsTableViewController.h; sourceTree = "<group>"; };
+		7DF3D3E21C6B8BF100D926BD /* FISRecipientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISRecipientsTableViewController.m; sourceTree = "<group>"; };
+		7DF3D3E41C6B8F8C00D926BD /* Recipient+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Recipient+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DF3D3E51C6B8F8C00D926BD /* Recipient+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Recipient+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DF3D3E61C6B8F8C00D926BD /* Recipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipient.h; sourceTree = "<group>"; };
+		7DF3D3E71C6B8F8C00D926BD /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipient.m; sourceTree = "<group>"; };
 		BDABDB611BD9899D00B9979E /* Message+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataProperties.h"; sourceTree = "<group>"; };
 		BDABDB621BD9899D00B9979E /* Message+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataProperties.m"; sourceTree = "<group>"; };
 		BDABDB631BD9899D00B9979E /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -123,6 +132,10 @@
 		D879F33E195E028000FC5285 /* slapChat */ = {
 			isa = PBXGroup;
 			children = (
+				7DF3D3E41C6B8F8C00D926BD /* Recipient+CoreDataProperties.h */,
+				7DF3D3E51C6B8F8C00D926BD /* Recipient+CoreDataProperties.m */,
+				7DF3D3E61C6B8F8C00D926BD /* Recipient.h */,
+				7DF3D3E71C6B8F8C00D926BD /* Recipient.m */,
 				BDABDB611BD9899D00B9979E /* Message+CoreDataProperties.h */,
 				BDABDB621BD9899D00B9979E /* Message+CoreDataProperties.m */,
 				BDABDB631BD9899D00B9979E /* Message.h */,
@@ -135,6 +148,8 @@
 				D879F34A195E028000FC5285 /* Main.storyboard */,
 				D879F378195E032D00FC5285 /* FISTableViewController.h */,
 				D879F379195E032D00FC5285 /* FISTableViewController.m */,
+				7DF3D3E11C6B8BF000D926BD /* FISRecipientsTableViewController.h */,
+				7DF3D3E21C6B8BF100D926BD /* FISRecipientsTableViewController.m */,
 				D879F350195E028000FC5285 /* Images.xcassets */,
 				D879F33F195E028000FC5285 /* Supporting Files */,
 			);
@@ -252,12 +267,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D879F345195E028000FC5285 /* main.m in Sources */,
+				7DF3D3E91C6B8F8D00D926BD /* Recipient.m in Sources */,
 				D879F375195E02C000FC5285 /* slapChat.xcdatamodeld in Sources */,
 				D879F372195E02B400FC5285 /* FISDataStore.m in Sources */,
 				BDABDB661BD9899D00B9979E /* Message.m in Sources */,
+				7DF3D3E31C6B8BF100D926BD /* FISRecipientsTableViewController.m in Sources */,
 				BDABDB651BD9899D00B9979E /* Message+CoreDataProperties.m in Sources */,
 				D879F349195E028000FC5285 /* FISAppDelegate.m in Sources */,
 				D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */,
+				7DF3D3E81C6B8F8C00D926BD /* Recipient+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

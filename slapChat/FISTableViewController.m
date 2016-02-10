@@ -34,13 +34,13 @@
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    [self.store fetchData];
-    [self.tableView reloadData];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//
+//    [self.store fetchData];
+//    [self.tableView reloadData];
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -59,7 +59,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.store.messages count];
+//    return [self.store.messages count];
+    return self.managedMessageObjects.count;
 }
 
 
@@ -67,7 +68,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basiccell" forIndexPath:indexPath];
     
-    Message *eachMessage = self.store.messages[indexPath.row];
+//    Message *eachMessage = self.store.messages[indexPath.row];
+    Message *eachMessage = self.managedMessageObjects[indexPath.row];
     
     cell.textLabel.text = eachMessage.content;
     
@@ -116,14 +118,13 @@
 */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

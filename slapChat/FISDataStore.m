@@ -72,6 +72,13 @@
     if ([self.messages count]==0) {
         [self generateTestData];
     }
+    
+    NSFetchRequest *recipientsRequest = [NSFetchRequest fetchRequestWithEntityName:@"Recipient"];
+    
+    NSSortDescriptor *nameSorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    recipientsRequest.sortDescriptors = @[nameSorter];
+    
+    self.recipients = [self.managedObjectContext executeFetchRequest:recipientsRequest error:nil];
 }
 
 - (void)saveContext
@@ -92,19 +99,39 @@
 
 - (void)generateTestData
 {
+    Recipient *recipient1 = [NSEntityDescription insertNewObjectForEntityForName:@"Recipient" inManagedObjectContext:self.managedObjectContext];
+    recipient1.name = @"Anna Wintour";
+    recipient1.email = @"hbic@vogue.com";
+    recipient1.phoneNumber = @"(212) 866-7535";
+    
+    Recipient *recipient2 = [NSEntityDescription insertNewObjectForEntityForName:@"Recipient" inManagedObjectContext:self.managedObjectContext];
+    recipient2.name = @"Andy Warhol";
+    recipient2.email = @"andy@thefactory.org";
+    recipient2.phoneNumber = @"(212) 121-2121";
+    recipient2.twitterHandle = @"drella";
+    
+    Recipient *recipient3 = [NSEntityDescription insertNewObjectForEntityForName:@"Recipient" inManagedObjectContext:self.managedObjectContext];
+    recipient3.name = @"Alexander McQueen";
+    recipient3.email = @"lee@alexandermcqueen.kering.com";
+    recipient3.phoneNumber = @"+44 20 7355 0088";
+    recipient3.twitterHandle = @"alexandermcqueen";
+    
     Message *messageOne = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
     
     messageOne.content = @"Message 1";
     messageOne.createdAt = [NSDate date];
+    messageOne.recipient = recipient1;
     
     Message *messageTwo = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
     messageTwo.content = @"Message 2";
     messageTwo.createdAt = [NSDate date];
+    messageTwo.recipient = recipient2;
     
     Message *messageThree = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
     
     messageThree.content = @"Message 3";
     messageThree.createdAt = [NSDate date];
+    messageThree.recipient = recipient3;
     
     [self saveContext];
     [self fetchData];
